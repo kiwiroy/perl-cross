@@ -4,6 +4,12 @@ if [ ! -f config.sh ]; then
 	echo "config.sh not found" >&2
 	exit -1
 fi
+sysname=`uname`
+case "$sysname" in
+  Darwin*)
+    enable -n echo
+    ;;
+esac
 
 disabledmods=''
 
